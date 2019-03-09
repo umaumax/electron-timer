@@ -6,6 +6,11 @@ const {
     BrowserWindow
 } = electron;
 
+// NOTE: avoid packaged electron app error
+// FYI: [When running in a compiled app \(e\.g\. Electron\), the program name is the first element, not the second · Issue \#128 · nodeca/argparse]( https://github.com/nodeca/argparse/issues/128 )
+if (process.argv.length < 2) {
+    process.argv = ['', ''];
+}
 const ArgumentParser = require('argparse').ArgumentParser;
 var parser = new ArgumentParser({
     version: '0.0.1',
@@ -26,7 +31,10 @@ parser.addArgument(
         defaultValue: 300
     }
 );
-var args = parser.parseArgs();
+
+// NOTE: avoid packaged electron app error
+// FYI: [When running in a compiled app \(e\.g\. Electron\), the program name is the first element, not the second · Issue \#128 · nodeca/argparse]( https://github.com/nodeca/argparse/issues/128 )
+var args = parser.parseArgs(process.argv.slice(2));
 let timerTime = parseInt(args.duration);
 
 let win;

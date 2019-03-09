@@ -27,3 +27,13 @@ electron . --debug
 
 ## FYI
 * [klugjo/electron\-timer\-app: Small Timer App]( https://github.com/klugjo/electron-timer-app )
+* [electron\-builderでElectronアプリのビルド \- Qiita]( https://qiita.com/nanairo24/items/73356574b0dc65c0e617 )
+* [electronでリリース用パッケージを作る \- PartyIX]( https://h3poteto.hatenablog.com/entry/2018/04/14/234353 )
+
+### cross platform build
+```
+$ node build
+electron-timer-0.0.1-mac.zip
+electron-timer-0.0.1-win.zip
+electron-timer-0.0.1.zip # linux
+```
