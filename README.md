@@ -70,9 +70,9 @@ state Timer{
 * [electronでリリース用パッケージを作る \- PartyIX]( https://h3poteto.hatenablog.com/entry/2018/04/14/234353 )
 
 ## NOTE
-### win
+### win icon size error
 ```
-Unhandled rejection Error: image /Users/uma/github.com/electron-timer/build/icons/icon.ico must be at least 256x256
+Unhandled rejection Error: image xxx/electron-timer/build/icons/icon.ico must be at least 256x256
 ```
 
 ### cross platform build
