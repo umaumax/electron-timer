@@ -22,6 +22,42 @@ electron . -n 60
 electron . --debug
 ```
 
+```plantuml
+@startuml
+skinparam backgroundColor #EEEBDC
+state Timer{
+  [*] --> main : init
+
+  main --> [*] : term
+  main : entry / reset count_down, set background color to black
+  main : do / accept button
+  main -down-> count_down : [button == start]
+  main -> main : [button == +1min] add +1min to timer, reset count_down
+  main -> main : [button == -1min] add -1min to timer, reset count_down
+
+  stop : entry / set background color to orange
+  stop : do / accept button
+  stop -> main : [button == reset]
+  stop -> count_down : [button == start]
+  stop --> [*] : term
+
+  count_down : entry / set background color to blue
+  count_down : do / count--
+  count_down : do / accept button
+  count_down -down-> alert : [count == 0]
+  count_down -> stop : [button == stop]
+  count_down -> count_down : [button == reset] reset count_down
+  count_down --> [*] : term
+
+  alert : entry / set background color to red
+  alert : do / accept button
+  alert -> main : [button == reset]
+  alert --> [*] : term
+}
+
+@enduml
+```
+
 ## ISSUE
 * if press many start button, maybe multiple `setInterval()` will be called (accelerate timer spped).
 * 60:00 is shown as 00:00
