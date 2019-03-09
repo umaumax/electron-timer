@@ -2,6 +2,8 @@
 
 * floating window
 
+![screenshot]( ./.data/screen_shot_01.png )
+
 ## Installation
 
 ```
