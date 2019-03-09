@@ -49,8 +49,8 @@ function startTimer() {
     if (timerStatus == TIMER_STATUS.START) {
         return;
     }
-    $('body').css('background-color', '#113A47');
     timerStatus = TIMER_STATUS.START;
+    $('body').css('background-color', '#113A47');
     let interval_ms = 1000;
     let timer = setInterval(() => {
         if (timerStatus != TIMER_STATUS.START) {
@@ -58,6 +58,7 @@ function startTimer() {
             stopTimer();
             return;
         }
+        $('body').css('background-color', '#113A47');
         currentTime = currentTime - 1;
         updateTimer();
         // When reaching 0. Stop.
